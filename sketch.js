@@ -1,7 +1,14 @@
 const contain = document.getElementById("contain");
 //let click =true;
+let error = "ERROR: insert a number between 2 and 100!";
+
+
 
 function createGrid( rows, columns) {
+ while (document.querySelector('button') !== null) {
+     document.querySelector('button').remove();
+ }
+    
     contain.style.setProperty('--grid-rows', rows);
     contain.style.setProperty('--grid-cols', columns);
     contain.style.overflow = 'hidden';
@@ -18,7 +25,7 @@ function createGrid( rows, columns) {
 
         })
     };
-    userButton()
+    userButton();
 };
 function userButton(){
     const btn = document.querySelector('#btn');
@@ -30,8 +37,8 @@ function userButton(){
     restart.addEventListener('click', () => {
         document.querySelectorAll('.gridBox').forEach(e => e.remove());
         let input = prompt('select a grid size from 2 to 100');
-        if ( input < 2 && input >100){
-            return "ERROR: insert a number between 2 and 100!";
+        if ( (input < 2) || (input >100)){
+            alert(error);
         }
         rows = input; 
         columns = input;
@@ -40,6 +47,13 @@ function userButton(){
 
 
 }
+function createRandomColor(){
+    let b = 255;
+    let d= Math.round;
+    let r = Math.random;
+    return 'rgb(' + d(r()*b) + "," + d(r()*b) + ',' + d(r()*b) + ')';
+    }
+    
 createGrid( 16, 16);
  //const button = document.createElement('BUTTON');
 //contain.append(button);
@@ -48,6 +62,8 @@ createGrid( 16, 16);
 
 
 //})
+
+ 
 
 //document.querySelector('body').addEventListener('click', ()=>{
    
