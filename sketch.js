@@ -21,12 +21,21 @@ function createGrid( rows, columns) {
         // box.innerText = (i + 1);
         contain.appendChild(box).className = "gridBox";
         box.addEventListener( 'mouseover', () => {
-            box.style.backgroundColor = 'red';
-
+            if (box.style.backgroundColor = '');
+           // box.style.backgroundColor = 'red';
+           let color = createRandomColor();
+           box.style.backgroundColor = color;
+           box.style.opacity = '.40'
+           return box.style.backgroundColor;
         })
-    };
+        if ((box.style.backgroundColor !== '') && (box.style.opacity <= '0.60')){
+            box.style.opacity = parseFloat(box.style.opacity) + .40;
+            return box.style.backgroundColor;
+        }
+    }
     userButton();
-};
+}
+
 function userButton(){
     const btn = document.querySelector('#btn');
     const restart = document.createElement('button');
@@ -66,4 +75,4 @@ createGrid( 16, 16);
  
 
 //document.querySelector('body').addEventListener('click', ()=>{
-   
+
